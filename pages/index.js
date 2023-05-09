@@ -14,7 +14,7 @@ export async function getStaticProps() {
 
   // add pokemon index
   data.results.forEach((item, index) => {
-    item.id = index;
+    item.id = index + 1;
   });
 
   return {

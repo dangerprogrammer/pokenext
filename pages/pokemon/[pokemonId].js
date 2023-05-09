@@ -27,15 +27,19 @@ export const getStaticProps = async (context) => {
 
   const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
 
-  const data = id > 0 ? await res.json() : undefined;
+  if (res.status == 404) return {
+    props: {}
+  }
+
+  const data = await res.json();
 
   return {
-    props: id > 0 ? {pokemon: data} : {},
+    props: {pokemon: data},
   }
 }
 
 export default function Pokemon({ pokemon }) {
-  if (!pokemon) return <h1>Não existe este pokemón!</h1>;
+  if (!pokemon) return <div>Não há este pokémon!</div>
 
   return (
     <div className={styles.pokemon_container}>
