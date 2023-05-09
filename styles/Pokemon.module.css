@@ -9,7 +9,7 @@
   color: #fff;
   padding: 0.3em;
   margin: 0.8em auto;
-  width: 200px;
+  display: table;
 }
 
 .pokemon_container h3 {
